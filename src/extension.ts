@@ -1,26 +1,36 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const copyAddonName = vscode.commands.registerCommand(
+    "odoo-tools.copyAddonName",
+    (uri: vscode.Uri) => {
+      const resourceUri = uri || vscode.window.activeTextEditor?.document.uri;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "odoo-tools" is now active!');
+      if (resourceUri) {
+        const filePath = resourceUri.fsPath;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('odoo-tools.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from odoo-tools!');
-	});
+        // Regex logic:
+        // Look for 'addons' followed by a slash, then capture everything
+        // until the next slash.
+        const match = filePath.match(/[\\/]addons[\\/]([^\\/]+)/);
 
-	context.subscriptions.push(disposable);
+        if (match && match[1]) {
+          const addonName = match[1];
+          vscode.env.clipboard.writeText(addonName).then(() => {
+            vscode.window.showInformationMessage(
+              `Odoo-tools: Copied '${addonName}' to clipboard`,
+            );
+          });
+        } else {
+          vscode.window.showWarningMessage(
+            'Odoo-tools: Could not detect an Odoo "addons" folder in this path.',
+          );
+        }
+      }
+    },
+  );
+
+  context.subscriptions.push(copyAddonName);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}

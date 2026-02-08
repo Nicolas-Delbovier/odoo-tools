@@ -14,10 +14,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "odoo-tools.helloWorld",
-        "title": "Hello World"
+        "command": "odoo-tools.copyAddonName",
+        "title": "Copy Addon Name"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "odoo-tools.copyAddonName",
+          "group": "odoo-tools",
+          "when": "resourcePath =~ /\\/addons\\// || resourcePath =~ /\\\\addons\\\\/"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
