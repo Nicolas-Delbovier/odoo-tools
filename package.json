@@ -15,15 +15,14 @@
     "commands": [
       {
         "command": "odoo-tools.copyAddonName",
-        "title": "Copy Addon Name"
+        "title": "Odoo-tools: Copy Addon Name"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "command": "odoo-tools.copyAddonName",
-          "group": "odoo-tools",
-          "when": "resourcePath =~ /\\/addons\\// || resourcePath =~ /\\\\addons\\\\/"
+          "group": "odoo-tools"
         }
       ]
     }
