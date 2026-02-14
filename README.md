@@ -20,7 +20,14 @@ This addon includes a series of functionality I found missing during odoo dev.
    </tr>
 </table>
 
+## 🚀 Installation
 
+[![Download VSIX](https://img.shields.io/badge/download-VSIX-blueviolet?style=for-the-badge&logo=visual-studio-code)](https://github.com/Nicolas-Delbovier/odoo-tools/releases/latest)
+
+1. Click the badge above to download the latest `.vsix` file.
+2. In VS Code, open the **Extensions** view (`Ctrl+Shift+X`).
+3. Click the **three dots (...)** in the top right corner.
+4. Select **Install from VSIX...** and choose the downloaded file.
 
 ## Known Issues
 
