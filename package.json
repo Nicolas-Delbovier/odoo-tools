@@ -3,12 +3,19 @@
   "displayName": "odoo-tools",
   "description": "Set of useful tools for odoo development",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nicolas-Delbovier/odoo-tools"
+  },
   "engines": {
     "vscode": "^1.109.0"
   },
   "categories": [
     "Other"
   ],
+  "icon": "medias/icons/odoo-tools-icon.png",
+  "publisher": "nicolas-delbovier", 
+  "author": "Nicolas Delbovier",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
