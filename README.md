@@ -24,6 +24,4 @@ This addon includes a series of functionality I found missing during odoo dev.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
 ## Release Notes
